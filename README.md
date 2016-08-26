@@ -88,3 +88,6 @@ Tools used in rendering this package:
 
 *  https://github.com/audreyr/cookiecutter
 *  https://github.com/pydanny/cookiecutter-djangopackage
+
+
+[pypi-version]: https://img.shields.io/pypi/v/zappa-file-widget.svg
