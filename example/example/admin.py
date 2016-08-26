@@ -2,7 +2,7 @@ from django import forms
 from django.contrib import admin
 
 from zappa_file_widget.file_widget import FileWidget
-from django_custom_admin.models import Order
+from .models import Order
 
 
 class OrderForm(forms.ModelForm):

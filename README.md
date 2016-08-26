@@ -6,11 +6,6 @@ Django Zappa File Widget
 
 Django Admin File Wiget for [django-zappa](https://github.com/Miserlou/django-zappa) based admin panels
 
-Documentation
--------------
-
-The full documentation is at https://zappa-file-widget.readthedocs.org.
-
 Quickstart
 ----------
 
@@ -72,14 +67,16 @@ admin.site.register(Order, OrderAdmin)
 ```
 
 ```sh
+git clone https://github.com/anush0247/zappa-file-widget
+cd zappa-file-widget/example
+mkvirtualenv zappa_file_widget
+pip install -r requirements.txt
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
 ```
 
-
 Point your browser at : [http://127.0.0.1:8000/admin/example/order/](http://127.0.0.1:8000/admin/example/order/)
-
 
 Credits
 ---------

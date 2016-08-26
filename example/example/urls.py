@@ -19,5 +19,4 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', include('zappa_file_widget.urls', namespace='zappa_file_widget')),
 ]
