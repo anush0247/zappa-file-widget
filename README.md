@@ -2,11 +2,7 @@
 Django Zappa File Widget
 =============================
 
-.. image:: https://badge.fury.io/py/zappa-file-widget.png
-    :target: https://badge.fury.io/py/zappa-file-widget
-
-.. image:: https://travis-ci.org/anush0247/zappa-file-widget.png?branch=master
-    :target: https://travis-ci.org/anush0247/zappa-file-widget
+[![pypi-version]][pypi]
 
 Django Admin File Wiget for Zappa based admin panels
 
