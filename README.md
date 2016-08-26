@@ -4,7 +4,7 @@ Django Zappa File Widget
 
 [![pypi-version]][pypi]
 
-Django Admin File Wiget for Zappa based admin panels
+Django Admin File Wiget for [django-zappa](https://github.com/Miserlou/django-zappa) based admin panels
 
 Documentation
 -------------
