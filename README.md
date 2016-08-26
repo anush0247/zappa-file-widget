@@ -91,3 +91,4 @@ Tools used in rendering this package:
 
 
 [pypi-version]: https://img.shields.io/pypi/v/zappa-file-widget.svg
+[pypi]: https://pypi.python.org/pypi/zappa-file-widget
