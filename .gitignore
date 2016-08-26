@@ -11,6 +11,11 @@
 android_jars/
 
 
+/coverage/
+/build/
+/dist/
+/*.egg-info/
+
 # Basics
 *.pyc
 __pycache__
