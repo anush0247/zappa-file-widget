@@ -1,1 +1,1 @@
-zappa_file_widget==0.1.0
+zappa_file_widget==0.1.2
