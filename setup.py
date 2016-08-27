@@ -27,7 +27,6 @@ if sys.argv[-1] == 'tag':
     os.system("git push --tags")
     sys.exit()
 
-readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 with open(os.path.join(os.path.dirname(__file__), 'requirements.txt')) as f:
@@ -37,7 +36,7 @@ setup(
     name='zappa-file-widget',
     version=version,
     description="""Django Admin File Wiget for Zappa based admin panels""",
-    long_description=readme + '\n\n' + history,
+    long_description="",
     author='Aneesh Kumar',
     author_email='anush0247@gmail.com',
     url='https://github.com/anush0247/zappa-file-widget',
