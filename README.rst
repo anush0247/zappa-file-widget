@@ -3,7 +3,7 @@ Django Zappa File Widget
 =============================
 
 .. image:: https://badge.fury.io/py/zappa-file-widget.png
-:target: https://badge.fury.io/py/zappa-file-widget
+
 
 Django Admin File Wiget for [django-zappa](https://github.com/Miserlou/django-zappa) based admin panels
 
