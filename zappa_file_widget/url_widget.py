@@ -29,6 +29,7 @@ function {{field_name}}_previewFile() {
 
     var {{field_name}}file_input = document.getElementById('id_{{field_name}}');
     var {{field_name}}file_url = document.getElementById('id_{{field_name}}_url');
+    var {{field_name}}file_loading = document.getElementById('id_{{field_name}}_loading');
     var file    = document.getElementById('id_{{field_name}}_tmp').files[0];
     var reader  = new FileReader();
     reader.addEventListener("load", function () {
@@ -50,8 +51,14 @@ function {{field_name}}_previewFile() {
                 {{field_name}}file_url.href = s3_key_url;
                 {{field_name}}file_url.innerHTML = s3_key_url;
                 {{field_name}}file_url.style = 'display:block';
+                {{field_name}}file_loading.style = 'display:none';
                 {{field_name}}file_input.value = s3_key_url;
             }
+        }).on('httpUploadProgress',function(progress) {
+          // Log Progress Information
+          {{field_name}}file_loading.style = 'display:block';
+          var msg = 'Please Wait, Uploading  ' + file.name + ' ('
+          {{field_name}}file_loading.innerHTML = msg + Math.round(progress.loaded / progress.total * 100) +'% done)';
         });
     }, false);
 
@@ -63,7 +70,8 @@ function {{field_name}}_previewFile() {
 <input type="file" id="id_{{field_name}}_tmp"
 onchange="{{field_name}}_previewFile()"/>
 <a href="{{field_value}}" id="id_{{field_name}}_url" target="_blank"
-style="display:{% if field_value %}block{% else %}none{% endif%}" >{{field_value}}</a>
+style="display:{% if field_value %}block{% else %}none{% endif%}" >{{field_value}}</a><br>
+<p id="id_{{field_name}}_loading" style="display:none" ></p>
 {{parent_html}}
 """
         attrs['type'] = 'hidden'
