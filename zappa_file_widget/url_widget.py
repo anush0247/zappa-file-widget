@@ -94,8 +94,3 @@ style="display:{% if field_value %}block{% else %}none{% endif%}" >{{field_value
         html = template.render(context)
 
         return mark_safe(html)
-
-    class MEDIA:
-        js = (
-            'https://sdk.amazonaws.com/js/aws-sdk-2.1.24.min.js',
-        )
