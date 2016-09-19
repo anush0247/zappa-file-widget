@@ -47,7 +47,7 @@ function {{field_name}}_previewFile() {
                 alert('Failed to Upload file to s3 ' + err);
             }
             else{
-                var s3_key_url = "{{ prefix_url }}" + file.name;
+                var s3_key_url = "{{ prefix_url }}" + encodeURI(file.name);
                 {{field_name}}file_url.href = s3_key_url;
                 {{field_name}}file_url.innerHTML = s3_key_url;
                 {{field_name}}file_url.style = 'display:block';
