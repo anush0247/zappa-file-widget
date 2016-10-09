@@ -32,7 +32,6 @@ from django.db import models
 
 class Order(models.Model):
     attachment = models.FileField(upload_to="media/") # file size < 1 MB
-    attachement2 = models.URLField() # zappa url widget -- file size >= 1 MB
     ordered_by = models.CharField(max_length=20)
 
     def __unicode__(self):
@@ -49,15 +48,13 @@ from django import forms
 from django.contrib import admin
 
 from zappa_file_widget.file_widget import FileWidget
-from zappa_file_widget.url_widget import URLWidget
 from django_custom_admin.models import Order
 
 
 class OrderForm(forms.ModelForm):
     class Meta:
         widgets = {
-            'attachment': FileWidget(),
-            'attachment2': URLWidget(),   
+            'attachment': FileWidget(), 
         }
 
 
@@ -107,7 +104,7 @@ from django_custom_admin.models import Order
 class OrderForm(forms.ModelForm):
     class Meta:
         widgets = {
-            'attachment2': URLWidget(),   
+            'attachment2':  URLWidget(upload_to="child_profile_pic/"), 
         }
 
 
