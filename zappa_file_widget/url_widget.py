@@ -77,8 +77,12 @@ style="display:{% if field_value %}block{% else %}none{% endif%}" >{{field_value
         attrs['type'] = 'hidden'
         parent_html = super(URLWidget, self).render(name, value, attrs=attrs)
         template = Template(html_template)
-        s3_host = 's3-ap-southeast-1.amazonaws.com'
-        default_region = getattr(settings, 'AWS_S3_HOST', s3_host).split(".amazonaws.com")[0].split("s3-")[1]
+        aws_access_key_id = getattr(settings, 'MEDIA_AWS_ACCESS_KEY_ID', 'AWS_ACCESS_KEY_ID')
+        aws_secret_access_key = getattr(settings, 'MEDIA_AWS_SECRET_ACCESS_KEY', 'AWS_SECRET_ACCESS_KEY')
+        s3_host_from_settings = getattr(settings, 'MEDIA_AWS_S3_HOST', 'AWS_S3_HOST')
+        s3_host = s3_host_from_settings or 's3-ap-southeast-1.amazonaws.com'
+        default_region = s3_host.split(".amazonaws.com")[0].split("s3-")[1]
+        aws_storage_bucket_name = getattr(settings, 'MEDIA_AWS_STORAGE_BUCKET_NAME', 'AWS_STORAGE_BUCKET_NAME')
         prefix = settings.MEDIAFILES_LOCATION + "/" + self.upload_to
         context = Context({
             'field_name': name,
@@ -86,10 +90,10 @@ style="display:{% if field_value %}block{% else %}none{% endif%}" >{{field_value
             'parent_html': parent_html,
             'prefix': prefix,
             "prefix_url": settings.MEDIA_URL + self.upload_to,
-            'AWS_ACCESS_KEY_ID': settings.AWS_ACCESS_KEY_ID,
-            'AWS_SECRET_ACCESS_KEY': settings.AWS_SECRET_ACCESS_KEY,
+            'AWS_ACCESS_KEY_ID': aws_access_key_id,
+            'AWS_SECRET_ACCESS_KEY': aws_secret_access_key,
             'AWS_DEFAULT_REGION': default_region,
-            'AWS_STORAGE_BUCKET_NAME': settings.AWS_STORAGE_BUCKET_NAME
+            'AWS_STORAGE_BUCKET_NAME': aws_storage_bucket_name,
         })
         html = template.render(context)
 
